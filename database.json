@@ -1,0 +1,20 @@
+[
+    { 
+        "name": "City Central Hospital", 
+        "distance": "1.2 km", 
+        "inventory": { "A+": 12, "O-": 3, "B+": 8 }, 
+        "updated": "Just now" 
+    },
+    { 
+        "name": "LifeLine Blood Bank", 
+        "distance": "3.5 km", 
+        "inventory": { "B+": 8, "AB+": 2, "O+": 22 }, 
+        "updated": "5 mins ago" 
+    },
+    { 
+        "name": "Apex Trauma Center", 
+        "distance": "5.8 km", 
+        "inventory": { "AB-": 1, "O+": 5, "B+": 11 }, 
+        "updated": "20 mins ago" 
+    }
+]
