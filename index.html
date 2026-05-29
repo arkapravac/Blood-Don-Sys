@@ -177,10 +177,10 @@
                         <h4 class="font-bold text-slate-800">${event.title}</h4>
                         <p class="text-xs text-blue-600 font-semibold mb-2">By ${event.organizer}</p>
                         <div class="flex items-center gap-2 text-sm text-slate-600 mt-1">
-                            <span>📍</span> ${event.location}
+                            <span>LOC</span> ${event.location}
                         </div>
                         <div class="flex items-center gap-2 text-sm text-slate-600 mt-1 font-medium">
-                            <span>🕒</span> ${event.time}
+                            <span>TIME</span> ${event.time}
                         </div>
                     </div>
                 `;
@@ -220,9 +220,24 @@
             }, 3000);
         }
 
+        async function fetchLiveBloodBankData() {
+            try {
+                const response = await fetch('http://localhost:3000/api/bloodbanks');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const liveData = await response.json();
+                console.log("Successfully fetched live data:", liveData);
+                
+                renderBloodBanks(liveData);
+            } catch (error) {
+                console.error("Backend not reachable. Falling back to mock data.", error);
+                renderBloodBanks(mockBloodBanks);
+            }
+        }
+
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
-            renderBloodBanks(mockBloodBanks);
+            fetchLiveBloodBankData(); 
             renderEvents();
         });
     </script>
